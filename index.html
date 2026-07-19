@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Commons — Phil's Dashboard Suite</title>
+<link rel="stylesheet" href="assets/acu-tokens.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--acu-sand); color: var(--acu-charcoal); font-family: var(--acu-font-body); line-height: 1.55; }
+  main { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
+  h1 { font-family: var(--acu-font-display); color: var(--acu-purple); font-size: 2.2rem; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .kicker { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--acu-ink-soft); margin-bottom: 28px; }
+  h2 { font-family: var(--acu-font-display); color: var(--acu-purple); font-size: 1.15rem; margin: 36px 0 10px; }
+  p, li { font-size: 0.92rem; color: var(--acu-charcoal); }
+  ul { padding-left: 1.3em; }
+  code { background: var(--acu-purple-10); border-radius: 4px; padding: 1px 6px; font-size: 0.85em; }
+  pre { background: var(--acu-purple); color: #fff; border-radius: var(--acu-radius-card); padding: 18px 22px; overflow-x: auto; font-size: 0.82rem; margin: 12px 0; }
+  .card { background: var(--acu-card); border-radius: var(--acu-radius-card); box-shadow: var(--acu-shadow-ambient); padding: 24px 28px; margin: 14px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
+  th, td { text-align: left; padding: 7px 12px 7px 0; }
+  th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--acu-ink-soft); }
+  tr + tr td { border-top: var(--acu-ghost-border); }
+  .swatches { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0; }
+  .sw { width: 92px; border-radius: 10px; overflow: hidden; box-shadow: var(--acu-shadow-ambient); }
+  .sw div { height: 52px; }
+  .sw span { display: block; font-size: 0.66rem; padding: 5px 7px; background: var(--acu-card); }
+  #registry-check { font-weight: 700; }
+  a { color: var(--acu-info); }
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">Phil's Dashboard Suite · Shared Infrastructure</p>
+  <h1>Dashboard Commons</h1>
+  <p>Single source of truth for the six-dashboard suite: the institution registry, ACU design tokens,
+     the suite nav strip, URL-state helpers, and the freshness-manifest schema the hub reads.</p>
+
+  <h2>1 · Suite nav strip (rendered live above when integrated)</h2>
+  <div class="card">
+    <p>Each dashboard adds one line — the strip injects itself at the top of the page:</p>
+    <pre>&lt;script src="https://pdparker.github.io/dashboard-commons/commons.js"
+        data-dash="edu-numbers" defer&gt;&lt;/script&gt;</pre>
+    <p>Valid <code>data-dash</code> ids: <code>cricos</code>, <code>edu-numbers</code>, <code>outcomes</code>,
+       <code>staff</code>, <code>rankings</code>, <code>student-signals</code>. Omit the attribute to load the
+       API without any UI.</p>
+  </div>
+
+  <h2>2 · Institution registry</h2>
+  <div class="card">
+    <p><a href="institutions.json">institutions.json</a> — canonical names, every alias used across the
+       suite's data sources, state, and peer-group membership (Go8 · ATN · IRU · RUN · SACRU).
+       Live check: <span id="registry-check">loading…</span></p>
+    <pre>const reg = await DashCommons.registry();
+reg.lookup("Royal Melbourne Institute of Technology").id  // "rmit-university"
+reg.inGroup("go8")                                        // 9 institutions
+reg.byId["australian-catholic-university"].groups         // ["sacru"]</pre>
+  </div>
+
+  <h2>3 · URL state — shareable filters</h2>
+  <div class="card">
+    <pre>DashCommons.state.set('inst', 'australian-catholic-university');
+DashCommons.state.get('inst');          // read back (survives reload/share)
+DashCommons.state.set('inst', null);    // remove</pre>
+    <p>Try it: <button id="demo-btn">Set ?demo=1</button> — then watch this page's URL.</p>
+  </div>
+
+  <h2>4 · ACU design tokens</h2>
+  <div class="card">
+    <p><a href="assets/acu-tokens.css">assets/acu-tokens.css</a> — purple carries, red punctuates.</p>
+    <div class="swatches">
+      <div class="sw"><div style="background:#3C1053"></div><span>--acu-purple</span></div>
+      <div class="sw"><div style="background:#63467B"></div><span>--acu-purple-70</span></div>
+      <div class="sw"><div style="background:#D8CDE1"></div><span>--acu-purple-20</span></div>
+      <div class="sw"><div style="background:#F2120C"></div><span>--acu-red</span></div>
+      <div class="sw"><div style="background:#FBF6F0"></div><span>--acu-sand</span></div>
+      <div class="sw"><div style="background:#1E1B18"></div><span>--acu-charcoal</span></div>
+    </div>
+  </div>
+
+  <h2>5 · Freshness manifest</h2>
+  <div class="card">
+    <p>Each dashboard publishes <code>manifest.json</code> at its root
+       (<a href="schema/manifest.schema.json">schema</a> ·
+        <a href="schema/manifest.example.json">example</a>). The hub fetches these to show
+       last-updated and data-vintage badges per card — staleness at a glance.</p>
+  </div>
+</main>
+
+<script src="commons.js" data-dash="edu-numbers" defer></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('demo-btn').addEventListener('click', function () {
+      DashCommons.state.set('demo', '1');
+    });
+    DashCommons.registry().then(function (reg) {
+      var rmit = reg.lookup('Royal Melbourne Institute of Technology');
+      var go8 = reg.inGroup('go8').length;
+      var el = document.getElementById('registry-check');
+      el.textContent = reg.institutions.length + ' institutions · lookup("Royal Melbourne…") → ' +
+        (rmit ? rmit.id : 'FAIL') + ' · Go8: ' + go8;
+      el.style.color = rmit ? 'var(--acu-success)' : 'var(--acu-red)';
+    }).catch(function (e) {
+      var el = document.getElementById('registry-check');
+      el.textContent = 'registry failed: ' + e.message;
+      el.style.color = 'var(--acu-red)';
+    });
+  });
+</script>
+</body>
+</html>

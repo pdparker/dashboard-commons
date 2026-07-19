@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pdparker.github.io/dashboard-commons/schema/manifest.schema.json",
+  "title": "Dashboard manifest",
+  "description": "Freshness and provenance metadata published by each dashboard at /<repo>/manifest.json. The hub reads these to show last-updated and data-vintage badges per card.",
+  "type": "object",
+  "required": ["id", "title", "url", "lastBuild", "dataSources"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable dashboard id, matches DashCommons.DASHBOARDS",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "title": { "type": "string", "description": "Human-readable dashboard title" },
+    "url": { "type": "string", "format": "uri", "description": "Canonical GitHub Pages URL" },
+    "repo": { "type": "string", "description": "GitHub repo, e.g. pdparker/edu_numbers_australia" },
+    "lastBuild": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date the dashboard HTML was last regenerated/edited"
+    },
+    "dataSources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "vintage"],
+        "properties": {
+          "name": { "type": "string", "description": "Source name, e.g. 'Dept of Education Higher Education Statistics'" },
+          "url": { "type": "string", "format": "uri" },
+          "vintage": { "type": "string", "description": "What the data covers, e.g. 'to 2024', '2025 + 2026 snapshots', 'QS 2026 edition'" },
+          "refreshed": { "type": "string", "format": "date", "description": "When this source was last pulled" }
+        }
+      }
+    },
+    "notes": { "type": "string", "description": "Caveats worth surfacing on the hub, e.g. definitional breaks" }
+  }
+}

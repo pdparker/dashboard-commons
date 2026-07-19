@@ -1,0 +1,79 @@
+/* ACU brand design tokens — paste into any self-contained HTML deliverable.
+   Purple carries, red punctuates. See SKILL.md for usage rules. */
+:root {
+  /* Brand */
+  --acu-purple: #3C1053;      /* signature — headings, nav, hero, primary series */
+  --acu-purple-70: #63467B;   /* secondary series, hovers */
+  --acu-purple-20: #D8CDE1;   /* tints, selected states */
+  --acu-purple-10: #F0EAF4;   /* lavender surface wash */
+  --acu-red: #F2120C;         /* impact — CTAs, alerts, negative trends. Pantone 485C */
+  --acu-red-dark: #C10E09;    /* red hover/pressed */
+
+  /* Neutrals (warm) */
+  --acu-charcoal: #1E1B18;    /* body text — never #000 */
+  --acu-ink-soft: #5C5651;    /* captions, secondary labels */
+  --acu-sand: #FBF6F0;        /* page background — never pure white pages */
+  --acu-sand-low: #F4EDE4;    /* section layer between page and cards */
+  --acu-card: #FFFFFF;        /* cards only, always on sand */
+
+  /* Functional (not brand) */
+  --acu-info: #005AB6;
+  --acu-success: #1E7D32;
+
+  /* Type */
+  --acu-font-display: "Nexa", "Avenir Next", Montserrat, Arial, Helvetica, sans-serif;
+  --acu-font-body: Arial, Helvetica, sans-serif;
+  --acu-font-serif: Georgia, "Times New Roman", serif;
+
+  /* Depth & shape */
+  --acu-shadow-ambient: 0 12px 48px rgba(60, 16, 83, 0.07);
+  --acu-shadow-float: 0 20px 64px rgba(60, 16, 83, 0.10);
+  --acu-ghost-border: 1px solid rgba(60, 16, 83, 0.10); /* accessibility fallback only */
+  --acu-radius-input: 8px;
+  --acu-radius-card: 16px;
+}
+
+/* Starter component styles — extend, don't fight them. */
+body.acu {
+  background: var(--acu-sand);
+  color: var(--acu-charcoal);
+  font-family: var(--acu-font-body);
+}
+.acu-card {
+  background: var(--acu-card);
+  border-radius: var(--acu-radius-card);
+  box-shadow: var(--acu-shadow-ambient);
+  padding: 2rem;
+}
+.acu-kpi-value {
+  font-family: var(--acu-font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--acu-purple);
+  line-height: 1.05;
+}
+.acu-kpi-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--acu-ink-soft);
+}
+.acu-btn-primary {
+  background: linear-gradient(135deg, var(--acu-red), var(--acu-red-dark));
+  color: #fff;
+  border: none;
+  border-radius: var(--acu-radius-input);
+  font-family: var(--acu-font-display);
+  font-weight: 700;
+  padding: 0.65rem 1.4rem;
+  cursor: pointer;
+}
+.acu-btn-ghost {
+  background: transparent;
+  color: var(--acu-purple);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
