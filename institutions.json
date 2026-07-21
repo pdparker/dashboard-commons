@@ -1,58 +1,590 @@
 {
-  "$comment": "Canonical Australian higher-education institution registry for Phil's dashboard suite. Group memberships as at 2026 - edit here, never in individual dashboards. aliases[] collects every name variant used by data sources so lookup(anyName) resolves to one id.",
-  "version": "1.0.0",
-  "updated": "2026-07-19",
-  "groups": {
-    "go8": { "name": "Group of Eight", "note": "Research-intensive universities" },
-    "atn": { "name": "Australian Technology Network", "note": "Membership as at 2026" },
-    "iru": { "name": "Innovative Research Universities", "note": "Membership as at 2026" },
-    "run": { "name": "Regional Universities Network", "note": "Membership as at 2026" },
-    "sacru": { "name": "Strategic Alliance of Catholic Research Universities", "note": "International alliance; ACU is the Australian member" }
+ "$comment": "Canonical Australian higher-education institution registry for Phil's dashboard suite. Group memberships as at 2026 - edit here, never in individual dashboards. aliases[] collects every name variant used by data sources so lookup(anyName) resolves to one id.",
+ "version": "1.0.0",
+ "updated": "2026-07-19",
+ "groups": {
+  "go8": {
+   "name": "Group of Eight",
+   "note": "Research-intensive universities"
   },
-  "institutions": [
-    { "id": "adelaide-university", "name": "Adelaide University", "shortName": "Adelaide", "state": "SA", "status": "active", "groups": ["go8"], "aliases": [], "note": "Formed 2026 from merger of The University of Adelaide and University of South Australia" },
-    { "id": "the-university-of-adelaide", "name": "The University of Adelaide", "shortName": "Adelaide (pre-merger)", "state": "SA", "status": "merged", "successorId": "adelaide-university", "groups": ["go8"], "aliases": ["University of Adelaide"] },
-    { "id": "university-of-south-australia", "name": "University of South Australia", "shortName": "UniSA", "state": "SA", "status": "merged", "successorId": "adelaide-university", "groups": ["atn"], "aliases": ["The University of South Australia", "UniSA"] },
-    { "id": "australian-catholic-university", "name": "Australian Catholic University", "shortName": "ACU", "state": "Multi-State", "status": "active", "groups": ["sacru"], "aliases": ["ACU"] },
-    { "id": "the-australian-national-university", "name": "The Australian National University", "shortName": "ANU", "state": "ACT", "status": "active", "groups": ["go8"], "aliases": ["Australian National University", "ANU", "The ANU"] },
-    { "id": "avondale-university", "name": "Avondale University", "shortName": "Avondale", "state": "NSW", "status": "active", "groups": [], "aliases": ["Avondale University College", "avondale-university-college"] },
-    { "id": "batchelor-institute", "name": "Batchelor Institute of Indigenous Tertiary Education", "shortName": "Batchelor", "state": "NT", "status": "active", "groups": [], "aliases": [] },
-    { "id": "bond-university", "name": "Bond University", "shortName": "Bond", "state": "QLD", "status": "active", "groups": [], "aliases": [] },
-    { "id": "cquniversity-australia", "name": "CQUniversity Australia", "shortName": "CQU", "state": "QLD", "status": "active", "groups": ["run"], "aliases": ["CQUniversity", "Central Queensland University", "CQU"] },
-    { "id": "charles-darwin-university", "name": "Charles Darwin University", "shortName": "CDU", "state": "NT", "status": "active", "groups": ["iru"], "aliases": ["CDU"] },
-    { "id": "charles-sturt-university", "name": "Charles Sturt University", "shortName": "CSU", "state": "NSW", "status": "active", "groups": ["run"], "aliases": ["CSU"] },
-    { "id": "curtin-university", "name": "Curtin University", "shortName": "Curtin", "state": "WA", "status": "active", "groups": ["atn"], "aliases": ["Curtin University of Technology", "curtin-university-of-technology"] },
-    { "id": "deakin-university", "name": "Deakin University", "shortName": "Deakin", "state": "VIC", "status": "active", "groups": ["atn"], "aliases": [] },
-    { "id": "edith-cowan-university", "name": "Edith Cowan University", "shortName": "ECU", "state": "WA", "status": "active", "groups": [], "aliases": ["ECU"] },
-    { "id": "federation-university-australia", "name": "Federation University Australia", "shortName": "Federation", "state": "VIC", "status": "active", "groups": ["run"], "aliases": ["Federation University"] },
-    { "id": "flinders-university", "name": "Flinders University", "shortName": "Flinders", "state": "SA", "status": "active", "groups": ["iru"], "aliases": [] },
-    { "id": "griffith-university", "name": "Griffith University", "shortName": "Griffith", "state": "QLD", "status": "active", "groups": ["iru"], "aliases": [] },
-    { "id": "james-cook-university", "name": "James Cook University", "shortName": "JCU", "state": "QLD", "status": "active", "groups": ["iru"], "aliases": ["JCU"] },
-    { "id": "la-trobe-university", "name": "La Trobe University", "shortName": "La Trobe", "state": "VIC", "status": "active", "groups": ["iru"], "aliases": [] },
-    { "id": "macquarie-university", "name": "Macquarie University", "shortName": "Macquarie", "state": "NSW", "status": "active", "groups": [], "aliases": [] },
-    { "id": "monash-university", "name": "Monash University", "shortName": "Monash", "state": "VIC", "status": "active", "groups": ["go8"], "aliases": [] },
-    { "id": "murdoch-university", "name": "Murdoch University", "shortName": "Murdoch", "state": "WA", "status": "active", "groups": ["iru"], "aliases": [] },
-    { "id": "queensland-university-of-technology", "name": "Queensland University of Technology", "shortName": "QUT", "state": "QLD", "status": "active", "groups": [], "aliases": ["QUT"] },
-    { "id": "rmit-university", "name": "RMIT University", "shortName": "RMIT", "state": "VIC", "status": "active", "groups": ["atn"], "aliases": ["Royal Melbourne Institute of Technology", "RMIT"] },
-    { "id": "southern-cross-university", "name": "Southern Cross University", "shortName": "SCU", "state": "NSW", "status": "active", "groups": ["run"], "aliases": ["SCU"] },
-    { "id": "swinburne-university-of-technology", "name": "Swinburne University of Technology", "shortName": "Swinburne", "state": "VIC", "status": "active", "groups": [], "aliases": ["Swinburne"] },
-    { "id": "torrens-university-australia", "name": "Torrens University Australia", "shortName": "Torrens", "state": "SA", "status": "active", "groups": [], "aliases": ["Torrens University", "torrens-university"] },
-    { "id": "university-of-canberra", "name": "University of Canberra", "shortName": "UC", "state": "ACT", "status": "active", "groups": [], "aliases": [] },
-    { "id": "university-of-divinity", "name": "University of Divinity", "shortName": "Divinity", "state": "VIC", "status": "active", "groups": [], "aliases": [] },
-    { "id": "the-university-of-melbourne", "name": "The University of Melbourne", "shortName": "Melbourne", "state": "VIC", "status": "active", "groups": ["go8"], "aliases": ["University of Melbourne", "Uni of Melbourne"] },
-    { "id": "university-of-new-england", "name": "University of New England", "shortName": "UNE", "state": "NSW", "status": "active", "groups": ["run"], "aliases": ["The University of New England", "UNE"] },
-    { "id": "university-of-new-south-wales", "name": "University of New South Wales", "shortName": "UNSW", "state": "NSW", "status": "active", "groups": ["go8"], "aliases": ["UNSW Sydney", "UNSW"] },
-    { "id": "university-of-newcastle", "name": "University of Newcastle", "shortName": "Newcastle", "state": "NSW", "status": "active", "groups": ["atn"], "aliases": ["The University of Newcastle", "Uni of Newcastle"] },
-    { "id": "the-university-of-notre-dame-australia", "name": "The University of Notre Dame Australia", "shortName": "Notre Dame", "state": "WA", "status": "active", "groups": [], "aliases": ["University of Notre Dame Australia", "Notre Dame"] },
-    { "id": "the-university-of-queensland", "name": "The University of Queensland", "shortName": "UQ", "state": "QLD", "status": "active", "groups": ["go8"], "aliases": ["University of Queensland", "UQ", "Uni of Queensland"] },
-    { "id": "university-of-southern-queensland", "name": "University of Southern Queensland", "shortName": "UniSQ", "state": "QLD", "status": "active", "groups": ["run"], "aliases": ["UniSQ", "USQ"] },
-    { "id": "the-university-of-sydney", "name": "The University of Sydney", "shortName": "Sydney", "state": "NSW", "status": "active", "groups": ["go8"], "aliases": ["University of Sydney", "Uni of Sydney"] },
-    { "id": "university-of-tasmania", "name": "University of Tasmania", "shortName": "UTAS", "state": "TAS", "status": "active", "groups": [], "aliases": ["UTAS"] },
-    { "id": "university-of-technology-sydney", "name": "University of Technology Sydney", "shortName": "UTS", "state": "NSW", "status": "active", "groups": ["atn"], "aliases": ["UTS", "Uni of Technology Sydney"] },
-    { "id": "university-of-the-sunshine-coast", "name": "University of the Sunshine Coast", "shortName": "UniSC", "state": "QLD", "status": "active", "groups": ["run"], "aliases": ["UniSC", "USC", "Uni of the Sunshine Coast"] },
-    { "id": "the-university-of-western-australia", "name": "The University of Western Australia", "shortName": "UWA", "state": "WA", "status": "active", "groups": ["go8"], "aliases": ["University of Western Australia", "UWA", "Uni of Western Australia"] },
-    { "id": "university-of-wollongong", "name": "University of Wollongong", "shortName": "UOW", "state": "NSW", "status": "active", "groups": [], "aliases": ["UOW"] },
-    { "id": "victoria-university", "name": "Victoria University", "shortName": "VU", "state": "VIC", "status": "active", "groups": [], "aliases": ["VU"] },
-    { "id": "western-sydney-university", "name": "Western Sydney University", "shortName": "WSU", "state": "NSW", "status": "active", "groups": ["iru"], "aliases": ["WSU"] }
-  ]
+  "atn": {
+   "name": "Australian Technology Network",
+   "note": "Membership as at 2026"
+  },
+  "iru": {
+   "name": "Innovative Research Universities",
+   "note": "Membership as at 2026"
+  },
+  "run": {
+   "name": "Regional Universities Network",
+   "note": "Membership as at 2026"
+  },
+  "sacru": {
+   "name": "Strategic Alliance of Catholic Research Universities",
+   "note": "International alliance; ACU is the Australian member"
+  },
+  "alliance2050": {
+   "name": "2050 Alliance",
+   "note": "Formed 2026 after the Universities Accord; ACU is a founding member. Membership as at 2026."
+  }
+ },
+ "institutions": [
+  {
+   "id": "adelaide-university",
+   "name": "Adelaide University",
+   "shortName": "Adelaide",
+   "state": "SA",
+   "status": "active",
+   "groups": [
+    "go8"
+   ],
+   "aliases": [],
+   "note": "Formed 2026 from merger of The University of Adelaide and University of South Australia"
+  },
+  {
+   "id": "the-university-of-adelaide",
+   "name": "The University of Adelaide",
+   "shortName": "Adelaide (pre-merger)",
+   "state": "SA",
+   "status": "merged",
+   "successorId": "adelaide-university",
+   "groups": [
+    "go8"
+   ],
+   "aliases": [
+    "University of Adelaide"
+   ]
+  },
+  {
+   "id": "university-of-south-australia",
+   "name": "University of South Australia",
+   "shortName": "UniSA",
+   "state": "SA",
+   "status": "merged",
+   "successorId": "adelaide-university",
+   "groups": [
+    "atn"
+   ],
+   "aliases": [
+    "The University of South Australia",
+    "UniSA"
+   ]
+  },
+  {
+   "id": "australian-catholic-university",
+   "name": "Australian Catholic University",
+   "shortName": "ACU",
+   "state": "Multi-State",
+   "status": "active",
+   "groups": [
+    "sacru",
+    "alliance2050"
+   ],
+   "aliases": [
+    "ACU"
+   ]
+  },
+  {
+   "id": "the-australian-national-university",
+   "name": "The Australian National University",
+   "shortName": "ANU",
+   "state": "ACT",
+   "status": "active",
+   "groups": [
+    "go8"
+   ],
+   "aliases": [
+    "Australian National University",
+    "ANU",
+    "The ANU"
+   ]
+  },
+  {
+   "id": "avondale-university",
+   "name": "Avondale University",
+   "shortName": "Avondale",
+   "state": "NSW",
+   "status": "active",
+   "groups": [],
+   "aliases": [
+    "Avondale University College",
+    "avondale-university-college"
+   ]
+  },
+  {
+   "id": "batchelor-institute",
+   "name": "Batchelor Institute of Indigenous Tertiary Education",
+   "shortName": "Batchelor",
+   "state": "NT",
+   "status": "active",
+   "groups": [],
+   "aliases": []
+  },
+  {
+   "id": "bond-university",
+   "name": "Bond University",
+   "shortName": "Bond",
+   "state": "QLD",
+   "status": "active",
+   "groups": [],
+   "aliases": []
+  },
+  {
+   "id": "cquniversity-australia",
+   "name": "CQUniversity Australia",
+   "shortName": "CQU",
+   "state": "QLD",
+   "status": "active",
+   "groups": [
+    "run"
+   ],
+   "aliases": [
+    "CQUniversity",
+    "Central Queensland University",
+    "CQU"
+   ]
+  },
+  {
+   "id": "charles-darwin-university",
+   "name": "Charles Darwin University",
+   "shortName": "CDU",
+   "state": "NT",
+   "status": "active",
+   "groups": [
+    "iru"
+   ],
+   "aliases": [
+    "CDU"
+   ]
+  },
+  {
+   "id": "charles-sturt-university",
+   "name": "Charles Sturt University",
+   "shortName": "CSU",
+   "state": "NSW",
+   "status": "active",
+   "groups": [
+    "run"
+   ],
+   "aliases": [
+    "CSU"
+   ]
+  },
+  {
+   "id": "curtin-university",
+   "name": "Curtin University",
+   "shortName": "Curtin",
+   "state": "WA",
+   "status": "active",
+   "groups": [
+    "atn"
+   ],
+   "aliases": [
+    "Curtin University of Technology",
+    "curtin-university-of-technology"
+   ]
+  },
+  {
+   "id": "deakin-university",
+   "name": "Deakin University",
+   "shortName": "Deakin",
+   "state": "VIC",
+   "status": "active",
+   "groups": [
+    "atn"
+   ],
+   "aliases": []
+  },
+  {
+   "id": "edith-cowan-university",
+   "name": "Edith Cowan University",
+   "shortName": "ECU",
+   "state": "WA",
+   "status": "active",
+   "groups": [],
+   "aliases": [
+    "ECU"
+   ]
+  },
+  {
+   "id": "federation-university-australia",
+   "name": "Federation University Australia",
+   "shortName": "Federation",
+   "state": "VIC",
+   "status": "active",
+   "groups": [
+    "run"
+   ],
+   "aliases": [
+    "Federation University"
+   ]
+  },
+  {
+   "id": "flinders-university",
+   "name": "Flinders University",
+   "shortName": "Flinders",
+   "state": "SA",
+   "status": "active",
+   "groups": [
+    "iru",
+    "alliance2050"
+   ],
+   "aliases": []
+  },
+  {
+   "id": "griffith-university",
+   "name": "Griffith University",
+   "shortName": "Griffith",
+   "state": "QLD",
+   "status": "active",
+   "groups": [
+    "iru",
+    "alliance2050"
+   ],
+   "aliases": []
+  },
+  {
+   "id": "james-cook-university",
+   "name": "James Cook University",
+   "shortName": "JCU",
+   "state": "QLD",
+   "status": "active",
+   "groups": [
+    "iru",
+    "alliance2050"
+   ],
+   "aliases": [
+    "JCU"
+   ]
+  },
+  {
+   "id": "la-trobe-university",
+   "name": "La Trobe University",
+   "shortName": "La Trobe",
+   "state": "VIC",
+   "status": "active",
+   "groups": [
+    "iru",
+    "alliance2050"
+   ],
+   "aliases": []
+  },
+  {
+   "id": "macquarie-university",
+   "name": "Macquarie University",
+   "shortName": "Macquarie",
+   "state": "NSW",
+   "status": "active",
+   "groups": [],
+   "aliases": []
+  },
+  {
+   "id": "monash-university",
+   "name": "Monash University",
+   "shortName": "Monash",
+   "state": "VIC",
+   "status": "active",
+   "groups": [
+    "go8"
+   ],
+   "aliases": []
+  },
+  {
+   "id": "murdoch-university",
+   "name": "Murdoch University",
+   "shortName": "Murdoch",
+   "state": "WA",
+   "status": "active",
+   "groups": [
+    "iru",
+    "alliance2050"
+   ],
+   "aliases": []
+  },
+  {
+   "id": "queensland-university-of-technology",
+   "name": "Queensland University of Technology",
+   "shortName": "QUT",
+   "state": "QLD",
+   "status": "active",
+   "groups": [],
+   "aliases": [
+    "QUT"
+   ]
+  },
+  {
+   "id": "rmit-university",
+   "name": "RMIT University",
+   "shortName": "RMIT",
+   "state": "VIC",
+   "status": "active",
+   "groups": [
+    "atn"
+   ],
+   "aliases": [
+    "Royal Melbourne Institute of Technology",
+    "RMIT"
+   ]
+  },
+  {
+   "id": "southern-cross-university",
+   "name": "Southern Cross University",
+   "shortName": "SCU",
+   "state": "NSW",
+   "status": "active",
+   "groups": [
+    "run"
+   ],
+   "aliases": [
+    "SCU"
+   ]
+  },
+  {
+   "id": "swinburne-university-of-technology",
+   "name": "Swinburne University of Technology",
+   "shortName": "Swinburne",
+   "state": "VIC",
+   "status": "active",
+   "groups": [],
+   "aliases": [
+    "Swinburne"
+   ]
+  },
+  {
+   "id": "torrens-university-australia",
+   "name": "Torrens University Australia",
+   "shortName": "Torrens",
+   "state": "SA",
+   "status": "active",
+   "groups": [],
+   "aliases": [
+    "Torrens University",
+    "torrens-university"
+   ]
+  },
+  {
+   "id": "university-of-canberra",
+   "name": "University of Canberra",
+   "shortName": "UC",
+   "state": "ACT",
+   "status": "active",
+   "groups": [
+    "alliance2050"
+   ],
+   "aliases": []
+  },
+  {
+   "id": "university-of-divinity",
+   "name": "University of Divinity",
+   "shortName": "Divinity",
+   "state": "VIC",
+   "status": "active",
+   "groups": [],
+   "aliases": []
+  },
+  {
+   "id": "the-university-of-melbourne",
+   "name": "The University of Melbourne",
+   "shortName": "Melbourne",
+   "state": "VIC",
+   "status": "active",
+   "groups": [
+    "go8"
+   ],
+   "aliases": [
+    "University of Melbourne",
+    "Uni of Melbourne"
+   ]
+  },
+  {
+   "id": "university-of-new-england",
+   "name": "University of New England",
+   "shortName": "UNE",
+   "state": "NSW",
+   "status": "active",
+   "groups": [
+    "run"
+   ],
+   "aliases": [
+    "The University of New England",
+    "UNE"
+   ]
+  },
+  {
+   "id": "university-of-new-south-wales",
+   "name": "University of New South Wales",
+   "shortName": "UNSW",
+   "state": "NSW",
+   "status": "active",
+   "groups": [
+    "go8"
+   ],
+   "aliases": [
+    "UNSW Sydney",
+    "UNSW"
+   ]
+  },
+  {
+   "id": "university-of-newcastle",
+   "name": "University of Newcastle",
+   "shortName": "Newcastle",
+   "state": "NSW",
+   "status": "active",
+   "groups": [
+    "atn"
+   ],
+   "aliases": [
+    "The University of Newcastle",
+    "Uni of Newcastle"
+   ]
+  },
+  {
+   "id": "the-university-of-notre-dame-australia",
+   "name": "The University of Notre Dame Australia",
+   "shortName": "Notre Dame",
+   "state": "WA",
+   "status": "active",
+   "groups": [],
+   "aliases": [
+    "University of Notre Dame Australia",
+    "Notre Dame"
+   ]
+  },
+  {
+   "id": "the-university-of-queensland",
+   "name": "The University of Queensland",
+   "shortName": "UQ",
+   "state": "QLD",
+   "status": "active",
+   "groups": [
+    "go8"
+   ],
+   "aliases": [
+    "University of Queensland",
+    "UQ",
+    "Uni of Queensland"
+   ]
+  },
+  {
+   "id": "university-of-southern-queensland",
+   "name": "University of Southern Queensland",
+   "shortName": "UniSQ",
+   "state": "QLD",
+   "status": "active",
+   "groups": [
+    "run"
+   ],
+   "aliases": [
+    "UniSQ",
+    "USQ"
+   ]
+  },
+  {
+   "id": "the-university-of-sydney",
+   "name": "The University of Sydney",
+   "shortName": "Sydney",
+   "state": "NSW",
+   "status": "active",
+   "groups": [
+    "go8"
+   ],
+   "aliases": [
+    "University of Sydney",
+    "Uni of Sydney"
+   ]
+  },
+  {
+   "id": "university-of-tasmania",
+   "name": "University of Tasmania",
+   "shortName": "UTAS",
+   "state": "TAS",
+   "status": "active",
+   "groups": [],
+   "aliases": [
+    "UTAS"
+   ]
+  },
+  {
+   "id": "university-of-technology-sydney",
+   "name": "University of Technology Sydney",
+   "shortName": "UTS",
+   "state": "NSW",
+   "status": "active",
+   "groups": [
+    "atn"
+   ],
+   "aliases": [
+    "UTS",
+    "Uni of Technology Sydney"
+   ]
+  },
+  {
+   "id": "university-of-the-sunshine-coast",
+   "name": "University of the Sunshine Coast",
+   "shortName": "UniSC",
+   "state": "QLD",
+   "status": "active",
+   "groups": [
+    "run"
+   ],
+   "aliases": [
+    "UniSC",
+    "USC",
+    "Uni of the Sunshine Coast"
+   ]
+  },
+  {
+   "id": "the-university-of-western-australia",
+   "name": "The University of Western Australia",
+   "shortName": "UWA",
+   "state": "WA",
+   "status": "active",
+   "groups": [
+    "go8"
+   ],
+   "aliases": [
+    "University of Western Australia",
+    "UWA",
+    "Uni of Western Australia"
+   ]
+  },
+  {
+   "id": "university-of-wollongong",
+   "name": "University of Wollongong",
+   "shortName": "UOW",
+   "state": "NSW",
+   "status": "active",
+   "groups": [],
+   "aliases": [
+    "UOW"
+   ]
+  },
+  {
+   "id": "victoria-university",
+   "name": "Victoria University",
+   "shortName": "VU",
+   "state": "VIC",
+   "status": "active",
+   "groups": [
+    "alliance2050"
+   ],
+   "aliases": [
+    "VU"
+   ]
+  },
+  {
+   "id": "western-sydney-university",
+   "name": "Western Sydney University",
+   "shortName": "WSU",
+   "state": "NSW",
+   "status": "active",
+   "groups": [
+    "iru",
+    "alliance2050"
+   ],
+   "aliases": [
+    "WSU"
+   ]
+  }
+ ]
 }
