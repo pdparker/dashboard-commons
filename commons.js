@@ -16,6 +16,7 @@
   var HUB_URL = 'https://pdparker.github.io/Phil-s-Dashboard/';
 
   var DASHBOARDS = [
+    { id: 'opportunity-map',  title: 'Opportunity Map',         url: 'https://pdparker.github.io/demand-supply-map/' },
     { id: 'cricos',           title: 'CRICOS Course Changes',   url: 'https://pdparker.github.io/cricos-dashboard-2025-2026/' },
     { id: 'intl-demand',      title: 'International Student Demand', url: 'https://pdparker.github.io/intl-student-demand/' },
     { id: 'edu-numbers',      title: 'Edu Numbers Australia',   url: 'https://pdparker.github.io/edu_numbers_australia/' },
