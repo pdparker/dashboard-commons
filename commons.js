@@ -17,6 +17,7 @@
 
   var DASHBOARDS = [
     { id: 'cricos',           title: 'CRICOS Course Changes',   url: 'https://pdparker.github.io/cricos-dashboard-2025-2026/' },
+    { id: 'intl-demand',      title: 'International Student Demand', url: 'https://pdparker.github.io/intl-student-demand/' },
     { id: 'edu-numbers',      title: 'Edu Numbers Australia',   url: 'https://pdparker.github.io/edu_numbers_australia/' },
     { id: 'grants',           title: 'Grant Outcomes',          url: 'https://pdparker.github.io/grant-outcomes/' },
     { id: 'outcomes',         title: 'University Outcomes',     url: 'https://pdparker.github.io/university-outcomes-dashboard/' },
