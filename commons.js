@@ -101,9 +101,14 @@
       '#dashcommons-nav a{color:#fff;text-decoration:none;font-size:12px;',
       'padding:8px 0;display:inline-block;opacity:.85;border-bottom:2px solid transparent}',
       '#dashcommons-nav a:hover{opacity:1}',
+      '#dashcommons-nav a:focus-visible{opacity:1;outline:2px solid #fff;outline-offset:2px;border-radius:2px}',
       '#dashcommons-nav a.dc-hub{font-weight:700;letter-spacing:.08em;',
       'text-transform:uppercase;opacity:1}',
-      '#dashcommons-nav a.dc-current{opacity:1;font-weight:700;border-bottom-color:#F2120C}'
+      '#dashcommons-nav a.dc-current{opacity:1;font-weight:700;border-bottom-color:#F2120C}',
+      /* Board-pack printing: the suite nav is a browsing aid, not part of the
+         content — every dashboard loads this script, so hiding it here once
+         covers the whole suite instead of a per-dashboard @media print rule. */
+      '@media print{#dashcommons-nav{display:none !important}}'
     ].join('');
 
     var style = document.createElement('style');
