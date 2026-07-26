@@ -129,6 +129,20 @@
     document.body.insertBefore(nav, document.body.firstChild);
   }
 
+  /* ---------------- File download ---------------- */
+  // Shared trigger for CSV/PNG export buttons: accepts a data: URL (string)
+  // or a Blob, creates a throwaway <a download>, clicks it, cleans up.
+  function downloadFile(dataUrlOrBlob, filename) {
+    var url = typeof dataUrlOrBlob === 'string' ? dataUrlOrBlob : URL.createObjectURL(dataUrlOrBlob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    if (typeof dataUrlOrBlob !== 'string') URL.revokeObjectURL(url);
+  }
+
   /* ---------------- Public API ---------------- */
   window.DashCommons = {
     BASE: BASE,
@@ -136,7 +150,8 @@
     DASHBOARDS: DASHBOARDS,
     state: state,
     registry: registry,
-    injectNav: injectNav
+    injectNav: injectNav,
+    downloadFile: downloadFile
   };
 
   var current = script ? script.getAttribute('data-dash') : null;
